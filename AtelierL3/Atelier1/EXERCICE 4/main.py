@@ -13,16 +13,18 @@ def date_est_valide(j: int, m: int, a: int):
     if est_bissextile(a):
         jours_en_fevrier = 29
 
+    # Contient des listes représentant chaque en tant que des couples [a, b] ou a est le numéro du mois et b le nombre maximum de jours de ce mois dans l'année
     max_jours_mois = [ [1, 31], [2, jours_en_fevrier], [3, 31], [4, 30], [5, 31], [6, 30], [7, 31], [8, 31], [9, 30], [10, 31], [11, 30], [12, 31] ]
 
-    # On parcours le tableau des mois et de leur maximum de jours
-    for e in max_jours_mois:
+    if 1900 <= a <= 2022:   
+        # On parcours le tableau des mois et de leur maximum de jours
+        for e in max_jours_mois:
 
-        # On cherche le mois qui correspond au mois rentré
-        if m == e[0]:
+            # On cherche le mois qui correspond au mois rentré
+            if m == e[0]:
 
-            # On return True si le jour existe de 1 au maximum de jours du mois sinon False
-            return 0 < j <= e[1]
+                # On return True si le jour existe de 1 au maximum de jours du mois sinon False
+                return 0 < j <= e[1]
 
     # Si le nombre rentré pour mois = m n'est compté parmis les 12 mois existants alors la date est erronée
     return False
