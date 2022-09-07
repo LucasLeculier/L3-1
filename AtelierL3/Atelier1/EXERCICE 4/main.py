@@ -58,7 +58,7 @@ def age(date_naissance: date):
 # Renvoi True si l'individu est majeur (>= 18) sinon False
 def est_majeur(date_naissance: date):
 
-    return age(date_naissance=date_naissance) >= 18
+    return age(date_naissance) >= 18
 
 # Procédure de tests, print si vous etes autorisé à entrer si vous etes majeur
 def test_acces():
