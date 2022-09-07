@@ -1,5 +1,7 @@
 # Dictionnaire de poids et tarif par type de lettre
-courrier = {
+from types import NoneType
+
+COURRIER = {
     "Lettre Verte": {
         20: 1.16,
         100: 2.32,
@@ -22,17 +24,15 @@ courrier = {
     }
 }
 
-types_lettres = ["Lettre Verte", "Lettre Prioritaire", "Ecopli"]
+# Définitions des fonctions
 
-# fonctions
-
-def trouver_affranchissement(type_l: str, poids: int):
+def trouver_affranchissement(type_lettre_choix: str, poids: int) -> float:
 
     tarif_affranchissement = 0   
 
-    for type_lettre, poids_lettre in courrier.items():
+    for type_lettre, poids_lettre in COURRIER.items():
 
-        if type_l == type_lettre:
+        if type_lettre_choix == type_lettre:
 
             for p, t in poids_lettre.items():
                 #print(f"{p}g -> {t} euros\n")
@@ -46,11 +46,11 @@ def trouver_affranchissement(type_l: str, poids: int):
 
     return tarif_affranchissement
 
-def service_poste():
+def service_poste() -> NoneType:
 
     while True:
         choix_lettre = input("Choisissez : (Lettre Verte) (Lettre Prioritaire) (Ecopli) : \n")
-        if choix_lettre not in types_lettres:
+        if choix_lettre not in COURRIER:
             choix_lettre = input("Ce choix n'existe pas, choisissez (Lettre Verte) (Lettre Prioritaire) (Ecopli) : \n")
         else:
             break
