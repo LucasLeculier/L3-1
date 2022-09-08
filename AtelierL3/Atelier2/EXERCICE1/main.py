@@ -1,6 +1,6 @@
 
 # Liste a tester
-LA_LISTE = [0, 4, 6, 8, 1, 6]
+LA_LISTE = [10, 4, 6, 8, 1, 6, 2]
 
 def somme_for(L: list) -> float:
 
@@ -12,8 +12,6 @@ def somme_for(L: list) -> float:
     return somme
 
 
-
-
 def somme_foreach(L: list) -> float:
 
     somme = 0
@@ -23,8 +21,7 @@ def somme_foreach(L: list) -> float:
     
     return somme
 
-
-
+#print(somme_foreach(LA_LISTE))
 
 def somme_while(L: list) -> float:
 
@@ -44,4 +41,93 @@ def test_somme():
     print("Somme avec le foreach :", somme_foreach(LA_LISTE))
     print("Somme avec le while :", somme_while(LA_LISTE))
 
-test_somme()
+#test_somme()
+
+def test_exercice1 ():
+    print("TEST SOMME")
+    #test liste vide
+    print("Test liste vide : ", somme_while([]))
+    #test somme 11111
+    S=[1,10,100, 1000,10000]
+    print("Test somme 1111 : ", somme_while(S))
+
+#test_exercice1()
+
+# 3)
+
+def moyenne(L: list):
+
+    somme = somme_foreach(L)
+
+    if len(L) > 0:
+        return somme / len(L)
+    else:
+        return 0
+
+#print(moyenne(LA_LISTE))
+
+# 4)
+
+def nb_sup(L: list, e: int) -> int:
+
+    compteur = 0
+
+    for i in L:
+        if e < i:
+            compteur += 1
+    
+    return compteur
+
+#print(nb_sup(LA_LISTE, 5))
+
+# 5) 
+
+def moy_sup(L: list, e: int) -> int:
+
+    compteur = 0
+    total = []
+
+    if len(L) > 0:
+        for i in L:
+            if e < i:
+                compteur += 1
+                total.append(i)
+        return moyenne(total)
+    else:
+        return 0
+
+# print(moy_sup(LA_LISTE, 5)) 
+# print(moy_sup([], 5))
+
+# 6)
+
+def val_max(L: list) -> float:
+
+    le_max = L[0]
+
+    for e in L:
+        if le_max < e:
+            le_max = e
+
+    return le_max
+
+#print(val_max(LA_LISTE))
+
+# 7)
+
+def ind_max(L: list) -> float:
+
+    le_max = L[0]
+
+    i_max = 0
+
+    for i in range(len(L)):
+        if le_max < L[i]:
+            le_max = L[i]
+            i_max = i
+
+    return i_max        
+
+
+print(ind_max(LA_LISTE))
+
