@@ -133,7 +133,7 @@ def prix_net(type_lettre: str, poids: float) -> float:
 
     return tarif_affranchissement
 
-def prix_complement(type_lettre: str, prix_net: float, zone_lettre: str, poids: float) -> float:
+def prix_complement(type_lettre: str, zone_lettre: str, poids: float, prix_net: float) -> float:
 
     prix = 0.0
 
@@ -157,15 +157,9 @@ def prix_complement(type_lettre: str, prix_net: float, zone_lettre: str, poids: 
 
 def main():
 
-    prix_complement()
+    choix = choix_client()
+
+    print("Le prix a payer est de :", prix_complement(choix[0], choix[1], choix[2], prix_net=prix_net(choix[0], choix[2])))
 
 
-
-
-
-
-
-choix = choix_client()
-
-print("Prix net :", prix_net(choix[0], choix[2]))
-
+main()
