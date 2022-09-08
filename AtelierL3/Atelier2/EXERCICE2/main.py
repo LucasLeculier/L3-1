@@ -1,7 +1,8 @@
-from re import I
-
+from math import ceil, floor
 
 LA_LISTE = [55, 8, 10, 43, 55, 4, 2, 55]
+LA_LISTE_TRIEE = [1, 5, 7, 10, 33, 165]
+LA_LISTE_TRIEE_2 = [0, 5, 8, 9, 22, 67, 80, 81, 107]
 
 # 1)
 
@@ -27,7 +28,7 @@ def position_2(L: list, e: int) -> int:
             return ind
         i += 1
 
-#print(position_2(LA_LISTE, 55))
+# print(position_2(LA_LISTE, 55))
 
 # print(position(LA_LISTE, 4))
 
@@ -37,12 +38,101 @@ def nb_occurences(L: list, e: int) -> int:
     compteur = 0
 
     for i in L:
-
-        print(position(L, e))
-
-        if position(L, e) != -1:
+        if e == i:
             compteur += 1
     
     return compteur
 
-print(nb_occurences(LA_LISTE, 55))
+# print(nb_occurences(LA_LISTE, 55))
+
+def est_triee_for(L: list) -> bool:
+
+    actuel = L[0]
+    est_triee = True
+
+    for i in range(len(L) - 1):
+
+        if actuel <= L[i+1]:
+            actuel = L[i+1]
+        else:
+            est_triee = False
+
+    return est_triee
+
+# print(est_triee_for(LA_LISTE))
+# print(est_triee_for(LA_LISTE_TRIEE))
+
+def est_triee_while(L: list) -> bool:
+
+    actuel = L[0]
+    i = 0
+    est_triee = True
+
+    while est_triee:
+
+        if i < len(L) - 1:
+            if actuel <= L[i+1]:
+                actuel = L[i+1]
+            else:
+                est_triee = False
+
+            i += 1
+        else:
+            break
+
+    return est_triee
+
+# print(est_triee_while(LA_LISTE))
+# print(est_triee_while(LA_LISTE_TRIEE))
+# print(est_triee_while(LA_LISTE_TRIEE_2))
+
+def position_tri(L: list, e: int) -> int:
+
+    debut_liste = 0
+    fin_liste = len(L) - 1
+
+    a_trouve = False
+
+    index_trouve = 0
+
+    while not a_trouve and debut_liste <= fin_liste:
+        millieu_liste = floor((debut_liste + fin_liste) / 2)
+        index_trouve = millieu_liste
+        
+        if L[millieu_liste] == e:
+            a_trouve = True
+        else:
+            if e > L[millieu_liste]:
+                debut_liste = millieu_liste + 1
+            else:
+                fin_liste = millieu_liste - 1
+
+    return index_trouve
+
+# print(position_tri(LA_LISTE_TRIEE_2, 80))
+
+def a_repetitions(L: list) -> bool:
+
+    t = []
+
+    a_trouve = False
+
+    should_continue = True
+
+    while should_continue:
+
+        for e in L:
+            if e not in t:
+                t.append(e)
+            else: 
+                should_continue = False
+                a_trouve = True
+        
+        should_continue = False
+
+    return a_trouve
+
+
+# print(a_repetitions(LA_LISTE))
+
+
