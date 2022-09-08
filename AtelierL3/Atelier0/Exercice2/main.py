@@ -1,3 +1,5 @@
+from math import ceil
+
 # Dictionnaire de poids (en grammes) et tarif par type de lettre
 COURRIER = {
     "Lettre Verte": {
@@ -22,10 +24,29 @@ COURRIER = {
     }
 }
 
+ZONES_COMPLEMENTS = {
+    "Lettre Verte": {
+        "FM": 0,
+        "OM1": 0.05,
+        "OM2": 0.11
+    },
+    "Lettre Prioritaire": {
+        "FM": 0,
+        "OM1": 0.05,
+        "OM2": 0.11
+    },
+    "Ecopli": {
+        "FM": 0,
+        "OM1": 0.02,
+        "OM2": 0.05
+    }
+}
+
 # Définitions des fonctions
 
 def trouver_affranchissement(type_lettre_choix: str, poids: int) -> float:
-    """Fonction permettant de trouver le taux d'affranchissement du client selon le poids du courrier et de son type passés en paramètres effectifs
+    """Fonction permettant de trouver le taux d'affranchissement du client selon le poids du courrier et de son type passés en paramètres 
+    effectifs
 
         params:
             type_lettre_choix: Le type de lettre souhaité
@@ -43,6 +64,7 @@ def trouver_affranchissement(type_lettre_choix: str, poids: int) -> float:
 
         if type_lettre_choix == type_lettre:
 
+            # p poids, t tarif
             for p, t in poids_lettre.items():
                 #print(f"{p}g -> {t} euros\n")
 
@@ -91,8 +113,24 @@ def service_poste() -> None:
 
         except:
             poids_message = "Ce poids est invalide, veuillez entrer un poids valide entier et supérieur à 0 : \n"
+    
+    # Boucle pour envoi outre mer ou non
+    choix_zone = input("Choisissez la zone dans laquelle envoyer votre courrier entre (FM) (OM1) (OM2) : \n")
+    
+    while True:
 
-    le_tarif = trouver_affranchissement(choix_lettre, choix_poids)
+        if choix_zone in ZONES_COMPLEMENTS[choix_lettre].keys():
+            break
+
+        else:
+            choix_zone = input("Cette zone n'existe pas, entrez une zone valide entre (FM) (OM1) (OM2) : \n")
+
+    for zones, complement in ZONES_COMPLEMENTS[choix_lettre].items():
+                    
+        if choix_zone == zones:
+                        
+            tranche = ceil(choix_poids / 10)
+            le_tarif = trouver_affranchissement(choix_lettre, choix_poids) + tranche * complement
 
     print(f"Votre tarif est de {le_tarif}€. \n")
 
