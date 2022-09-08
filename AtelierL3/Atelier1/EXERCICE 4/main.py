@@ -1,12 +1,19 @@
 from datetime import date
 
+ANNEE_MIN = 1900
+ANNEE_MAX = 2022
+
 # Renvoie True si l'année est bissextile, False au contraire
-def est_bissextile(a: int):
+def est_bissextile(a: int) -> bool:
+    """Cette fonction prend en paramètre un entier correspondant à une année (ex. 2000) et renvoie True si elle est
+    bissextile sinon false
+    
+    """
 
     return a % 4 == 0 and a % 100 != 0 or a % 400 == 0
 
 # Renvoie True si la date est valide 
-def date_est_valide(j: int, m: int, a: int):
+def date_est_valide(j: int, m: int, a: int) -> bool:
 
     jours_en_fevrier = 28
 
@@ -16,7 +23,7 @@ def date_est_valide(j: int, m: int, a: int):
     # Contient des listes représentant chaque en tant que des couples [a, b] ou a est le numéro du mois et b le nombre maximum de jours de ce mois dans l'année
     max_jours_mois = [ [1, 31], [2, jours_en_fevrier], [3, 31], [4, 30], [5, 31], [6, 30], [7, 31], [8, 31], [9, 30], [10, 31], [11, 30], [12, 31] ]
 
-    if 1900 <= a <= 2022:   
+    if ANNEE_MIN <= a <= ANNEE_MAX:   
         # On parcours le tableau des mois et de leur maximum de jours
         for e in max_jours_mois:
 
@@ -30,7 +37,7 @@ def date_est_valide(j: int, m: int, a: int):
     return False
 
 # Permet la saisie de la date de naissance de l'utilisateur
-def saisie_date_naissance():
+def saisie_date_naissance() -> date:
 
     while True:
 
@@ -49,21 +56,21 @@ def saisie_date_naissance():
             print("Cette date de naissance est invalide.")
 
 # Renvoi l'age actuel de la personne née a la date passée en argument
-def age(date_naissance: date):
+def age(date_naissance: date) -> int:
 
     # Date d'aujourd'hui
     ajd = date.today()
 
-    # Renvoi la différence, a.k.a l'age de la personne en années
+    # Renvoi la différence, l'age de la personne en années
     return int((ajd - date_naissance).days / 365)
 
 # Renvoi True si l'individu est majeur (>= 18) sinon False
-def est_majeur(date_naissance: date):
+def est_majeur(date_naissance: date) -> int:
 
     return age(date_naissance) >= 18
 
 # Procédure de tests, print si vous etes autorisé à entrer si vous etes majeur
-def test_acces():
+def test_acces() -> None:
 
     date_naissance = saisie_date_naissance()
 
