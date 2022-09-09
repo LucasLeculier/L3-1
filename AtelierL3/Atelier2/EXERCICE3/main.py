@@ -1,20 +1,26 @@
-LA_LISTE = [-1, 8, -4, 50, 75, -200, 12, 5, -7]
+from turtle import pos
+
+
+LA_LISTE = [-1, 8, 0, -4, 50, 75, -200, 12, 5, 0, -7]
 
 def separer(L: list) -> list:
 
     nouvelle_liste = [0] * len(L)
 
-    actuel_positif = len(L) - 1
-    actuel_negatif = 0
+    positifs = []
+    negatifs = []
+    zeros = []
 
     for e in L:
 
         if e < 0:
-            nouvelle_liste[actuel_negatif] = e
-            actuel_negatif += 1
+            negatifs.append(e)
+        elif e > 0:
+            positifs.append(e)
         else:
-            nouvelle_liste[actuel_positif] = e
-            actuel_positif -= 1
+            zeros.append(e)
+
+    nouvelle_liste = negatifs + zeros + positifs
 
     return nouvelle_liste
 
