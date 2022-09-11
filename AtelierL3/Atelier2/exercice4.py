@@ -84,5 +84,8 @@ def est_bijective(F: list) -> bool:
     else:
         return False
 
-print(est_bijective(F1))
-print(est_bijective(F2))
+# print(est_bijective(F1))
+# print(est_bijective(F2))
+
+
+# def affiche_histo(F: list) -> :
