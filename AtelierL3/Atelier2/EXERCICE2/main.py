@@ -1,4 +1,4 @@
-from math import ceil, floor
+from math import floor
 
 LA_LISTE = [55, 8, 10, 43, 55, 4, 2, 55]
 LA_LISTE_TRIEE = [1, 5, 7, 10, 33, 165]
@@ -67,24 +67,23 @@ def est_triee_while(L: list) -> bool:
     actuel = L[0]
     i = 0
     est_triee = True
+    counter = 0
 
-    while est_triee:
+    while est_triee and i < len(L) - 1:
+        counter += 1
 
-        if i < len(L) - 1:
-            if actuel <= L[i+1]:
-                actuel = L[i+1]
-            else:
-                est_triee = False
-
-            i += 1
+        if actuel <= L[i+1]:
+            actuel = L[i+1]
         else:
-            break
+            est_triee = False
 
+        i += 1
+    print(counter)
     return est_triee
 
-# print(est_triee_while(LA_LISTE))
-# print(est_triee_while(LA_LISTE_TRIEE))
-# print(est_triee_while(LA_LISTE_TRIEE_2))
+#print(est_triee_while(LA_LISTE))
+#print(est_triee_while(LA_LISTE_TRIEE))
+#print(est_triee_while(LA_LISTE_TRIEE_2))
 
 def position_tri(L: list, e: int) -> int:
 
@@ -112,27 +111,24 @@ def position_tri(L: list, e: int) -> int:
 # print(position_tri(LA_LISTE_TRIEE_2, 80))
 
 def a_repetitions(L: list) -> bool:
+    """_summary_
 
+    Args:
+        L (list): _description_
+
+    Returns:
+        bool: _description_
+    """
     t = []
 
-    a_trouve = False
-
-    should_continue = True
-
-    while should_continue:
-
-        for e in L:
-            if e not in t:
-                t.append(e)
-            else: 
-                should_continue = False
-                a_trouve = True
+    for e in L:
+            
+        if e in t:
+            return True
+        else:
+            t.append(e)
         
-        should_continue = False
+    return False
 
-    return a_trouve
-
-
-# print(a_repetitions(LA_LISTE))
-
-
+LA_LISTE_REPET = [6, 5, 7, 10, 8, 11]
+print(a_repetitions(LA_LISTE_REPET))
