@@ -1,6 +1,3 @@
-from turtle import pos
-
-
 LA_LISTE = [-1, 8, 0, -4, 50, 75, -200, 12, 5, 0, -7]
 
 def separer(L: list) -> list:

@@ -129,5 +129,5 @@ def ind_max(L: list) -> float:
     return i_max        
 
 
-print(ind_max(LA_LISTE))
+#print(ind_max(LA_LISTE))
 
