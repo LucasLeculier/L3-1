@@ -31,17 +31,20 @@ def is_mail(str_arg: str) -> tuple[int]:
         tuple[int]: _description_
     """
 
-    adresse = ""
     validity_list = [0, 0]
 
     if "@" in str_arg:
+
         adresse = str_arg.split("@")
+        corps_adresse = adresse[0]
+        domaine_adresse = adresse[1]
+
         
-        if "." in adresse[1]:
+        if "." in domaine_adresse:
 
-            if adresse[0] and "." != adresse[0][0] and "." != adresse[0][-1]:
+            if corps_adresse and "." != corps_adresse[0] and "." != corps_adresse[-1]:
 
-                if "." != adresse[0][0] and "." != adresse[0][-1]:
+                if "." != corps_adresse[0] and "." != corps_adresse[-1]:
 
                     validity_list = [1, 0]
                 
