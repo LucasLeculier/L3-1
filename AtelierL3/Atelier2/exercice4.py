@@ -12,20 +12,20 @@ def histo(F: list) -> list:
     contenue dans F
 
     Args:
-        F (list): _description_
+        F (list): Une liste d'entiers
 
     Returns:
-        list: _description_
+        list: L'histogramme de la liste F
     """
 
-    h = [0] * (val_max(F) + 1)
+    histogramme = [0] * (val_max(F) + 1)
 
-    for i in range(val_max(F) + 1):
-        h[i] = nb_occurences(F, i)
+    for i in range(len(histogramme)):
+        histogramme[i] = nb_occurences(F, i)
 
-    return h
+    return histogramme
 
-#print(histo(ENSEMBLE_J))
+# print(histo(ENSEMBLE_J))
 
 def est_injective(F: list) -> bool:
     """Renvoie True si la liste fonction représentée par la liste
@@ -83,13 +83,10 @@ def est_bijective(F: list) -> bool:
         F (list): _description_
 
     Returns:
-        bool: _description_
+        bool: True si bijective sinon False
     """
 
-    if est_injective(F) and est_surjective(F):
-        return True
-    else:
-        return False
+    return est_injective(F) and est_surjective(F)
 
 # print(est_bijective(F1))
 # print(est_bijective(F2))
@@ -143,7 +140,7 @@ def affiche_histo(F: list) -> None:
 
 
 L = [1, 5, 5, 5, 9, 11, 11, 15, 15, 15, 15]
-#affiche_histo(L)
+affiche_histo(L)
 
 def test_histogramme(F: list) -> None:
     """Affiche l'histogramme de F en représentation graphique
@@ -159,4 +156,4 @@ def test_histogramme(F: list) -> None:
     plt.hist(h)
     plt.show()
 
-test_histogramme(L)
+# test_histogramme(L)
