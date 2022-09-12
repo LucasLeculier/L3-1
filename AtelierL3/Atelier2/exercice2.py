@@ -123,7 +123,8 @@ def est_triee_while(L: list) -> bool:
     #print(counter)
     return est_triee
 
-#print(est_triee_while(LA_LISTE))
+#the_list = [1, 2, 4, 6, 8, 10, 19]
+#print(est_triee_while(the_list))
 #print(est_triee_while(LA_LISTE_TRIEE))
 #print(est_triee_while(LA_LISTE_TRIEE_2))
 
@@ -173,14 +174,16 @@ def a_repetitions(L: list) -> bool:
     """
     t = []
 
+    repet = False
+
     for e in L:
             
         if e in t:
-            return True
+            repet = True
         else:
             t.append(e)
         
-    return False
+    return repet
 
 #LA_LISTE_REPET = [6, 5, 7, 10, 8, 11]
 #print(a_repetitions(LA_LISTE_REPET))
