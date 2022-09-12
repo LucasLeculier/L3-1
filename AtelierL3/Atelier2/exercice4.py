@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+
 from exercice1 import val_max
 from exercice2 import nb_occurences
 
@@ -88,4 +90,62 @@ def est_bijective(F: list) -> bool:
 # print(est_bijective(F2))
 
 
-# def affiche_histo(F: list) -> :
+def affiche_histo(F: list) -> None:
+    """_summary_
+
+    Args:
+        F (list): _description_
+    """
+
+    print("\nTEST HISTOGRAMME\n")
+    print(f"F={F}\n")
+    print("HISTOGRAMME\n")
+
+    h = histo(F)
+    maxocc = val_max(h)
+    #print(maxocc)
+
+    #print(h, "\n")
+
+    list_lignes = []
+
+    for i in range(0, maxocc):
+        ligne = ""
+        
+        for i in range(len(h)):
+            if h[i] > 0:
+                h[i] -= 1
+                ligne += "   #"
+            else:
+                ligne += "    "
+        list_lignes.append(ligne)
+
+    for item in list_lignes[::-1]:
+        print(item)
+    
+    ligne1 = ""
+    ligne2 = ""
+    for i in range(len(h)):
+        ligne1 += "| --"
+        if i < 10:
+            ligne2 += f"  {i} "
+        else:
+            ligne2 += f" {i} "
+    
+    print(ligne1)
+    print(ligne2)
+
+
+
+L = [1, 5, 5, 5, 9, 11, 11, 15, 15, 15, 15]
+#affiche_histo(L)
+
+def test_histogramme(F: list) -> None:
+
+    h = histo(F)
+    print(h)
+
+    plt.hist(h)
+    plt.show()
+
+test_histogramme(L)
