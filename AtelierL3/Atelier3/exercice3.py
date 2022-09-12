@@ -1,3 +1,5 @@
+import random
+
 from exercice2 import dictionnaire
 
 def places_lettre(ch: str, mot: str) -> list[int]:
@@ -60,13 +62,17 @@ def output_str(mot: str, lpos: list[int]) -> str:
 
     return output_mot
 
-print(output_str("bonjour", places_lettre("bonjour", "bonjour")))
+#print(output_str("bonjour", places_lettre("bonjour", "bonjour")))
 
 def run_game(lst_mots: list[str]):
 
-    print(lst_mots)
+    mot_a_deviner = lst_mots[random.randint(0, len(lst_mots) - 1)]
 
-    return
+    paris = output_str(mot_a_deviner, places_lettre("", mot_a_deviner))
+
+    print(paris)
+
+    return 
 
 liste_mots = dictionnaire("AtelierL3\Atelier3\mots_pendu.txt")
 

@@ -144,4 +144,5 @@ def test_exercice1():
     print(dictionnaire("AtelierL3\Atelier3\mots.txt"))
     print("Résultat attendu :", ["Python", "Java", "Javascript", "PHP", "Csharp", "Cplusplus", "C"], "\n")
 
-test_exercice1()
+if __name__ == "__main__":
+    test_exercice1()
