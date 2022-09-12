@@ -44,7 +44,7 @@ def is_mail(str_arg: str) -> tuple[int]:
 
             if corps_adresse and "." != corps_adresse[0] and "." != corps_adresse[-1]:
 
-                if "." != corps_adresse[0] and "." != corps_adresse[-1]:
+                if "." != domaine_adresse[0] and "." != domaine_adresse[-1]:
 
                     validity_list = [1, 0]
                 
