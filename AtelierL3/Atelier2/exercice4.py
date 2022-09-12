@@ -7,7 +7,9 @@ ENSEMBLE_J = [6, 5, 6, 8, 4, 2, 1, 5]
 ENSEMBLE_J_INJ = [3, 0, 6, 7, 4, 2, 1, 5]
 
 def histo(F: list) -> list:
-    """_summary_
+    """Renvoie une liste contenant les fréquences d'apparition
+    de chaque élément de la liste F de taille 0 à la valeur max
+    contenue dans F
 
     Args:
         F (list): _description_
@@ -26,7 +28,8 @@ def histo(F: list) -> list:
 #print(histo(ENSEMBLE_J))
 
 def est_injective(F: list) -> bool:
-    """_summary_
+    """Renvoie True si la liste fonction représentée par la liste
+    F est injective sinon False
 
     Args:
         F (list): _description_
@@ -50,7 +53,8 @@ F2=[3,0,6,7,4,2,1,5]
 # print(est_injective(F2))
 
 def est_surjective(F: list) -> bool:
-    """_summary_
+    """Renvoie True si la liste fonction représentée par la liste
+    F est surjective sinon False
 
     Args:
         F (list): _description_
@@ -72,7 +76,8 @@ def est_surjective(F: list) -> bool:
 # print(est_surjective(F2))
 
 def est_bijective(F: list) -> bool:
-    """_summary_
+    """Renvoie True si la liste fonction représentée par la liste
+    F est injective et surjective sinon False
 
     Args:
         F (list): _description_
@@ -91,7 +96,7 @@ def est_bijective(F: list) -> bool:
 
 
 def affiche_histo(F: list) -> None:
-    """_summary_
+    """Affiche l'histogramme de F en représentation graphique
 
     Args:
         F (list): _description_
@@ -141,6 +146,12 @@ L = [1, 5, 5, 5, 9, 11, 11, 15, 15, 15, 15]
 #affiche_histo(L)
 
 def test_histogramme(F: list) -> None:
+    """Affiche l'histogramme de F en représentation graphique
+    avec la méthode hist() de la classe pyplot
+
+    Args:
+        F (list): _description_
+    """
 
     h = histo(F)
     print(h)

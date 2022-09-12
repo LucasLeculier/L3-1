@@ -12,13 +12,7 @@ def vitrine(nb_emplacements: int, liste_objets: list) -> tuple[list]:
     liste1 = [] * nb_emplacements
     liste2 = [] * nb_emplacements
 
-    for e in liste_objets:
-        if e not in liste1 and e not in liste2:
-            if e not in liste1 and len(liste1) < nb_emplacements:
-                liste1.append(e)
-            if e not in liste2 and len(liste2) < nb_emplacements:
-                liste2.append(e)
-            
+     
 
 
     return (liste1, liste2)

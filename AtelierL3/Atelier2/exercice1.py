@@ -12,7 +12,7 @@ def somme_for(L: list) -> float:
     return somme
 
 
-def somme_foreach(L: list) -> float:
+def somme_foreach(L: list) -> int:
 
     somme = 0
 
@@ -55,16 +55,26 @@ def test_exercice1 ():
 
 # 3)
 
-def moyenne(L: list):
+def moyenne(L: list) -> float:
+    """Renvoie la moyenne des éléments de la liste L
+
+    Args:
+        L (list): Liste d'entiers 
+
+    Returns:
+        float: La moyenne des éléments de L
+    """
 
     somme = somme_foreach(L)
 
-    if len(L) > 0:
+    if L:
         return somme / len(L)
     else:
         return 0
 
-#print(moyenne(LA_LISTE))
+print(moyenne(LA_LISTE))
+print(moyenne([]))
+# help(moyenne)
 
 # 4)
 

@@ -1,6 +1,16 @@
 LA_LISTE = [-1, 8, 0, -4, 50, 75, -200, 12, 5, 0, -7]
 
 def separer(L: list) -> list:
+    """Sépare les negatifs et les positifs contenus dans
+    L et renvoie une nouvelle liste contenant à gauche les négatifs
+    et à droite les positifs
+
+    Args:
+        L (list): _description_
+
+    Returns:
+        list: _description_
+    """
 
     nouvelle_liste = [0] * len(L)
 
