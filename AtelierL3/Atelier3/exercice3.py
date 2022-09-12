@@ -24,10 +24,10 @@ def places_lettre(ch: str, mot: str) -> list[int]:
 
 def test_place_lettre():
 
-    print(places_lettre("a", "tamagochi"))
-    print("Résultat attendu :", [1, 3])
+    print(places_lettre("o", "bonjour"))
+    print("Résultat attendu :", [1, 4])
 
-#test_place_lettre()
+test_place_lettre()
 
 def output_str(mot: str, lpos: list[int]) -> str:
     """Renvoie une chaine de caractères 
@@ -40,15 +40,13 @@ def output_str(mot: str, lpos: list[int]) -> str:
         str: _description_
     """
 
-    output_mot = []
+    output_mot = ["_"] * len(mot)
 
     if lpos:
 
-        for i in range(len(mot)):
-
-            if i == lpos[i]:
-                print(i)
+        for i in lpos:
+            output_mot[i] = mot[i]
 
     return output_mot
 
-output_str("bonjour", places_lettre("o", "bonjour"))
+print(output_str("bonjour", places_lettre("o", "bonjour")))
