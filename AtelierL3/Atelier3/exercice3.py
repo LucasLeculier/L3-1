@@ -1,3 +1,5 @@
+from exercice2 import dictionnaire
+
 def places_lettre(ch: str, mot: str) -> list[int]:
     """Cherche si le caractère ch est present dans mot et dans ce cas renvoie
     une liste des indices de ch dans mot
@@ -59,3 +61,13 @@ def output_str(mot: str, lpos: list[int]) -> str:
     return output_mot
 
 print(output_str("bonjour", places_lettre("bonjour", "bonjour")))
+
+def run_game(lst_mots: list[str]):
+
+    print(lst_mots)
+
+    return
+
+liste_mots = dictionnaire("AtelierL3\Atelier3\mots_pendu.txt")
+
+run_game(liste_mots)
