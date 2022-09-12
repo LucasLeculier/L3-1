@@ -12,11 +12,20 @@ def places_lettre(ch: str, mot: str) -> list[int]:
 
     liste_indices = []
 
+    """
     if len(ch) == 1:
         
         for i in range(len(mot)):
 
             if ch == mot[i]:
+
+                liste_indices.append(i)
+    """
+    for i in range(len(mot)):
+
+        for lettre in ch:
+
+            if lettre == mot[i]:
 
                 liste_indices.append(i)
 
@@ -27,7 +36,7 @@ def test_place_lettre():
     print(places_lettre("o", "bonjour"))
     print("Résultat attendu :", [1, 4])
 
-test_place_lettre()
+# test_place_lettre()
 
 def output_str(mot: str, lpos: list[int]) -> str:
     """Renvoie une chaine de caractères 
@@ -49,4 +58,4 @@ def output_str(mot: str, lpos: list[int]) -> str:
 
     return output_mot
 
-print(output_str("bonjour", places_lettre("o", "bonjour")))
+print(output_str("bonjour", places_lettre("bonjour", "bonjour")))
