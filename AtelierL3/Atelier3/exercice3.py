@@ -64,7 +64,7 @@ def output_str(mot: str, lpos: list[int]) -> str:
 
 #print(output_str("bonjour", places_lettre("bonjour", "bonjour")))
 
-def run_game(lst_mots: list[str]) -> None:
+def run_game(dict_mots: dict) -> None:
     """Jeu du pendu : Prend en param une liste de mots, choisis un mot aléatoirement, demande a l'utilisateur une lettre
     jusqu'à ce qu'il trouve le mot ou qu'il atteigne son nombre max d'essais
 
@@ -72,7 +72,11 @@ def run_game(lst_mots: list[str]) -> None:
         lst_mots (list[str]): _description_
     """
 
-    mot_a_deviner = lst_mots[random.randint(0, len(lst_mots) - 1)]
+    difficulty = int(input("Choisissez une difficulté :\n"))
+
+    mot_a_deviner = dict_mots[difficulty][random.randint(0, len(dict_mots[difficulty]) - 1)]
+
+    print(mot_a_deviner)
 
     paris = output_str(mot_a_deviner, places_lettre("", mot_a_deviner))
 
@@ -124,6 +128,21 @@ def run_game(lst_mots: list[str]) -> None:
     else:
         print("Vous avez perdu, le mot à trouver était", mot_a_deviner)
 
+def build_dict(lst_mots: list[str]) -> dict:
+
+    dictionnaire_mots = {} 
+
+    for mot in lst_mots:
+        dictionnaire_mots[len(mot)] = []
+
+    for mot in lst_mots:
+        
+        dictionnaire_mots[len(mot)].append(mot)
+
+    print(dictionnaire_mots)
+
+    return dictionnaire_mots
+
 liste_mots = dictionnaire("AtelierL3\Atelier3\mots_pendu.txt")
 
-run_game(liste_mots)
+run_game(build_dict(liste_mots))
