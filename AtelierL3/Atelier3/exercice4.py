@@ -1,3 +1,5 @@
+from exercice2 import mots_n_lettres, dictionnaire
+
 def mot_correspond(mot: str, motif: str) -> bool:
     """Renvoie True si mot correspond à motif sinon False
 
@@ -85,6 +87,71 @@ def mot_possible(mot: str, lettres: str) -> bool:
 
     return mot_est_possible
         
+def mot_optimaux(dico: list[str], lettres: str) -> list[str]:
+    """Renvoie la liste des mots de longueur maximal présents dans la liste de mots dico
+    que l'on peut faire avec les lettres présentes dans lettres
+
+    Args:
+        dico (list[str]): _description_
+        lettres (str): _description_
+
+    Returns:
+        list[str]: _description_
+    """
+    """
+    liste_mots_longueur = {}
+
+    for mot in dico:
+
+        if mot_possible(mot, lettres):
+            liste_mots_longueur[len(mot)] = []
+
+    for mot in dico:
+
+        if mot_possible(mot, lettres):
+            liste_mots_longueur[len(mot)].append(mot)
+
+    liste_mots_longueur = dict(sorted(liste_mots_longueur.items()))
+
+    longueur_max = max(liste_mots_longueur)
+
+    print(liste_mots_longueur)
+    """
+
+    dict_mots_longueur = {}
+
+    dict_mots = {}
+
+    for i in range(len(lettres), 1, -1):
+        if mots_n_lettres(dico, i):
+            dict_mots_longueur[i] = []
+
+    for i in range(len(lettres), 1, -1):
+        if mots_n_lettres(dico, i):
+            dict_mots_longueur[i].append(mots_n_lettres(dico, i))
+
+    # print(dict_mots_longueur)
+
+    longueur_max = max(dict_mots_longueur)
+
+    # print(longueur_max)
+
+    for key in dict_mots_longueur:
+        dict_mots[key] = []
+
+    for key, value in dict_mots_longueur.items():
+        print(value)
+        
+        for mot in value:
+
+            if mot_possible(mot, lettres):
+                print(mot)
+
+                dict_mots[key][value].append(mot)
+
+    print(dict_mots)
+
+    
 
 
 
@@ -106,6 +173,8 @@ if __name__ == "__main__":
     print(mot_possible("cheval", "abilnpq"))
 
     print()
+
+    print(mot_optimaux(dictionnaire("AtelierL3\Atelier3\mots_scrabble.txt"), "cheval"))
 
 
     
