@@ -153,11 +153,14 @@ def mot_optimaux(dico: list[str], lettres: str) -> list[str]:
     for key, value in dict_mots.items():
         
         if not value:
-            dict_mots.pop(key)
+            iop = 2
+
+    final_dict_mots = [ value for key, value in dict_mots.items() if value ]
         
+    # print(max(final_dict_mots))
+    # print(final_dict_mots)
 
-    print(dict_mots)
-
+    return max(final_dict_mots)
     
 
 
@@ -181,7 +184,7 @@ if __name__ == "__main__":
 
     print()
 
-    print(mot_optimaux(dictionnaire("AtelierL3\Atelier3\mots_scrabble.txt"), "cheval"))
+    print(mot_optimaux(dictionnaire("AtelierL3\Atelier3\mots_scrabble.txt"), "vioteru"))
 
 
     
