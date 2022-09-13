@@ -69,7 +69,7 @@ def operateur(car: str) -> bool:
         bool: _description_
     """
 
-    return car in ["+", "*"]
+    return car in ["+", "*", "-"]
 
 def nombre(car: str) -> bool:
     """Renvoie True si car est bien un nombre sinon False
@@ -108,28 +108,49 @@ def verif_parenthese(expression: str) -> bool:
 
     pile = []
 
-    est_ok = True
+    valide = True
 
     i = 0
 
-    while est_ok and i < len(expression): 
+    # print(len(expression))
+
+    while valide and i < len(expression): 
 
         e = expression[i]
 
+        # print("i :", i)
+
+        # print(e)
+        # print(valide)
+
         if ouvrante(e):
+
             pile.append(e)
-        
-        if fermante(e) and pile:
+
+        elif fermante(e):
+
+            if not pile:
+
+                valide =  False
             
-            if fermante(e) != renverse(e):
-                est_ok = False
+            else:
+                
+                h = pile.pop()
 
-        else:
-            est_ok = False
+                if e != renverse(h):
+
+                    valide = False
+
+        # print("La pile :", pile)
+
+        i += 1
+
+    if pile:
+
+        valide = False
 
 
-
-    return pile
+    return valide
 
 
 
@@ -167,4 +188,7 @@ if __name__ == "__main__":
 
     print()
 
-    print(verif_parenthese("(0+6)+(5*3)*[4+[5*7]]")) # ()()
+    print(verif_parenthese("(3+2)*6-1")) # True
+    print(verif_parenthese("((3+2)*6-1")) # False
+    print(verif_parenthese("(5+7]*12")) # False
+    print(verif_parenthese("((5+4)*(6+7))")) # False
