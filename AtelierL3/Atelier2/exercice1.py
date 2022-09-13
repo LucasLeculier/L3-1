@@ -72,8 +72,8 @@ def moyenne(L: list) -> float:
     else:
         return 0
 
-print(moyenne(LA_LISTE))
-print(moyenne([]))
+# print(moyenne(LA_LISTE))
+# print(moyenne([]))
 # help(moyenne)
 
 # 4)

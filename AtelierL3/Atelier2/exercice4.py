@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 from exercice1 import val_max
 from exercice2 import nb_occurences
 
-ENSEMBLE_J = [6, 5, 6, 8, 4, 2, 1, 5]
-ENSEMBLE_J_INJ = [3, 0, 6, 7, 4, 2, 1, 5]
+# ENSEMBLE_J = [6, 5, 6, 8, 4, 2, 1, 5]
+# ENSEMBLE_J_INJ = [3, 0, 6, 7, 4, 2, 1, 5]
 
 def histo(F: list) -> list:
     """Renvoie une liste contenant les fréquences d'apparition
@@ -47,9 +47,9 @@ def est_injective(F: list) -> bool:
 
     return True
 
-F1=[6,5,6,7,4,2,1,5]
+# F1=[6,5,6,7,4,2,1,5]
 # print(est_injective(F1))
-F2=[3,0,6,7,4,2,1,5]
+# F2=[3,0,6,7,4,2,1,5]
 # print(est_injective(F2))
 
 def est_surjective(F: list) -> bool:
@@ -139,8 +139,8 @@ def affiche_histo(F: list) -> None:
 
 
 
-L = [1, 5, 5, 5, 9, 11, 11, 15, 15, 15, 15]
-affiche_histo(L)
+# L = [1, 5, 5, 5, 9, 11, 11, 15, 15, 15, 15]
+# affiche_histo(L)
 
 def test_histogramme(F: list) -> None:
     """Affiche l'histogramme de F en représentation graphique

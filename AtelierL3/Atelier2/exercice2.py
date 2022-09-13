@@ -1,8 +1,8 @@
 from math import floor
 
-LA_LISTE = [55, 8, 10, 43, 55, 4, 2, 55]
-LA_LISTE_TRIEE = [1, 5, 7, 10, 33, 165]
-LA_LISTE_TRIEE_2 = [0, 5, 8, 9, 22, 67, 80, 81, 107]
+# LA_LISTE = [55, 8, 10, 43, 55, 4, 2, 55]
+# LA_LISTE_TRIEE = [1, 5, 7, 10, 33, 165]
+# LA_LISTE_TRIEE_2 = [0, 5, 8, 9, 22, 67, 80, 81, 107]
 
 # 1)
 
