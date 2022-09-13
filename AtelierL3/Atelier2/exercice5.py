@@ -1,3 +1,5 @@
+from exercice2 import nb_occurences
+
 def vitrine(nb_emplacements: int, liste_objets: list) -> tuple[list]:
     """_summary_
 
@@ -9,13 +11,26 @@ def vitrine(nb_emplacements: int, liste_objets: list) -> tuple[list]:
         tuple[list]: _description_
     """
 
-    liste1 = [] * nb_emplacements
-    liste2 = [] * nb_emplacements
+    vitrine1 = [] 
+    vitrine2 = []
 
-     
+    for i in range(0, len(liste_objets)):
+
+        compteur = [] * nb_occurences(liste_objets, liste_objets[i])
+
+        print(compteur)
+
+        if 
 
 
-    return (liste1, liste2)
+
+        
+
+
+                
+
+
+    return (vitrine1, vitrine2)
 
 nb_emplacements = 4
 l_objets = [1, 2, 2, 3, 4, 5, 5]
