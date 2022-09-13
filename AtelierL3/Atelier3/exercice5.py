@@ -83,6 +83,19 @@ def nombre(car: str) -> bool:
 
     return car.isdigit()
 
+def caractere_valide(car: str) -> bool:
+    """Renvoie True si le caractère est un caractère valide dans
+    une expression arithmetique
+
+    Args:
+        car (str): _description_
+
+    Returns:
+        bool: _description_
+    """
+
+    return ouvrante(car) or fermante(car) or operateur(car) or nombre(car)
+
 
 if __name__ == "__main__":
 
@@ -109,3 +122,9 @@ if __name__ == "__main__":
 
     print(nombre("456"))
     print(nombre("("))
+
+    print()
+
+    print(caractere_valide("a")) # False
+    print(caractere_valide("+")) # True
+    print(caractere_valide("{")) # True
