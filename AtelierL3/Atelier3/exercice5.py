@@ -96,6 +96,42 @@ def caractere_valide(car: str) -> bool:
 
     return ouvrante(car) or fermante(car) or operateur(car) or nombre(car)
 
+def verif_parenthese(expression: str) -> bool:
+    """Renvoie True si l'expression arithmetique expression est valide
+
+    Args:
+        expression (str): _description_
+
+    Returns:
+        bool: _description_
+    """
+
+    pile = []
+
+    est_ok = True
+
+    i = 0
+
+    while est_ok and i < len(expression): 
+
+        e = expression[i]
+
+        if ouvrante(e):
+            pile.append(e)
+        
+        if fermante(e) and pile:
+            
+            if fermante(e) != renverse(e):
+                est_ok = False
+
+        else:
+            est_ok = False
+
+
+
+    return pile
+
+
 
 if __name__ == "__main__":
 
@@ -128,3 +164,7 @@ if __name__ == "__main__":
     print(caractere_valide("a")) # False
     print(caractere_valide("+")) # True
     print(caractere_valide("{")) # True
+
+    print()
+
+    print(verif_parenthese("(0+6)+(5*3)*[4+[5*7]]")) # ()()
