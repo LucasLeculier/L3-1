@@ -140,14 +140,21 @@ def mot_optimaux(dico: list[str], lettres: str) -> list[str]:
         dict_mots[key] = []
 
     for key, value in dict_mots_longueur.items():
-        print(value)
+        # print(value)
         
-        for mot in value:
+        for lst in value:
+            
+            for mot in lst:
+                if mot_possible(mot, lettres):
+                    # print(mot)
 
-            if mot_possible(mot, lettres):
-                print(mot)
+                    dict_mots[key].append(mot)
 
-                dict_mots[key][value].append(mot)
+    for key, value in dict_mots.items():
+        
+        if not value:
+            dict_mots.pop(key)
+        
 
     print(dict_mots)
 
