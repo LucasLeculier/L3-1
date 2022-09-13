@@ -60,19 +60,69 @@ def output_str(mot: str, lpos: list[int]) -> str:
         for i in lpos:
             output_mot[i] = mot[i]
 
-    return output_mot
+    return ''.join(output_mot)
 
 #print(output_str("bonjour", places_lettre("bonjour", "bonjour")))
 
-def run_game(lst_mots: list[str]):
+def run_game(lst_mots: list[str]) -> None:
+    """Jeu du pendu : Prend en param une liste de mots, choisis un mot aléatoirement, demande a l'utilisateur une lettre
+    jusqu'à ce qu'il trouve le mot ou qu'il atteigne son nombre max d'essais
+
+    Args:
+        lst_mots (list[str]): _description_
+    """
 
     mot_a_deviner = lst_mots[random.randint(0, len(lst_mots) - 1)]
 
     paris = output_str(mot_a_deviner, places_lettre("", mot_a_deviner))
 
-    print(paris)
+    mot_actuel = ""
+    
+    print("Mot a deviner :", mot_a_deviner)
+    print("Le paris :", paris, "\n")
 
-    return 
+    lst_dessin_base = [["|---] "], ["| O "], ["| T "], ["|/ \\"], ["|______"]]
+    lst_dessin_progression = [["|---] "], ["|   "], ["|   "], ["|   "], ["|______"]]
+
+    mot_trouve = False
+    tries_counter = 0
+    lettres_devinees = ""
+
+    while not mot_trouve and tries_counter < 5:
+
+        print(paris)
+
+        lettre_user = input("Choisissez une lettre :\n")
+
+        if lettre_user in lettres_devinees or lettre_user not in mot_a_deviner:
+
+            lst_dessin_progression[tries_counter] = lst_dessin_base[tries_counter]
+
+            for e in lst_dessin_progression:
+                print(''.join(e))
+            tries_counter += 1
+
+        else:
+            lettres_devinees += lettre_user
+
+        paris = output_str(mot_a_deviner, places_lettre(lettres_devinees, mot_a_deviner))
+
+        mot_actuel = paris
+
+
+        if mot_actuel == mot_a_deviner:
+            print("TRUE")
+            mot_trouve = True
+
+        
+
+        print(tries_counter, "essais.")
+        
+
+    if mot_trouve:
+        print("Vous avez trouvé le mot", mot_a_deviner)
+    else:
+        print("Vous avez perdu, le mot à trouver était", mot_a_deviner)
 
 liste_mots = dictionnaire("AtelierL3\Atelier3\mots_pendu.txt")
 
