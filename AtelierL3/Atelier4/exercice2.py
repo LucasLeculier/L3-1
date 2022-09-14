@@ -25,6 +25,12 @@ def melange_liste(lst: list) -> list:
 if __name__ == '__main__':
 
     lst_triee = [i for i in range(10)]
-    print("Liste triée de départ")
+    print("Liste triée de départ :", lst_triee)
+    lst_melangee = melange_liste(lst_triee)
+    print("Liste mélangée obtenue :", lst_melangee)
+    print("La liste de départ doit etre intacte après appel de melange_liste :", lst_triee)
+    print()
+    assert lst_triee != lst_melangee
+
 
  
