@@ -14,19 +14,6 @@ def gen_liste_random_int(taille: int=10, int_binf: int=0, int_bsup: int=10) -> l
 
     return [randint(int_binf, int_bsup - 1) for i in range(taille)]
 
-def melange_liste(lst: list) -> list:
-    """Renvoie une liste issue du mélange de la liste
-    passée en paramètre
-
-    Args:
-        lst (list): _description_
-
-    Returns:
-        list: _description_
-    """
-
-    
-
 if __name__ == '__main__':
 
     print(gen_liste_random_int())
