@@ -74,6 +74,8 @@ def run_game(lst_mots: dict) -> None:
 
     dict_mots = build_dict(lst_mots)
 
+    print(dict_mots)
+
     difficulty = int(input("Choisissez une difficulté : 5, 6, 7, 8\n"))
 
     mot_a_deviner = select_word(dict_mots, difficulty)
@@ -156,7 +158,7 @@ def select_word(sorted_word: dict, word_len: int) -> str:
         str: _description_
     """
 
-    mot_choisi = sorted_word[word_len][random.randint(0, word_len - 1)]
+    mot_choisi = sorted_word[word_len][random.randint(0, len(sorted_word[word_len]))]
 
     return mot_choisi
 
