@@ -1,8 +1,10 @@
 from exercice4 import histo
-from exercice2 import nb_occurences
 
 def vitrine(nb_emplacements: int, liste_objets: list) -> tuple[list]:
-    """_summary_
+    """Trie les objets dans les deux listes vitrines
+    de sorte a ce qu'aucune des deux ne contiennent d'objets
+    dupliqués et n'aient pas une taille dépassant nb_emplacement chacune
+    sinon, renvoie un couple ([], [])
 
     Args:
         nb_emplacements (int): _description_
