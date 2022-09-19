@@ -56,13 +56,33 @@ liste_quelconque = generer_liste(100, "")
 
 n = 10_000_000
 
-start_pc = time.perf_counter() # Debut calcul performances
+def perf_mix(fonction1: callable, fonction2: callable, liste_test: list[int], nb_executions: int) -> tuple[float]:
 
-melange_liste(liste_croissante)
+    perfs_fonction1 = []
+    perfs_fonction2 = []
 
-end_pc = time.perf_counter() # Fin calcul performances
+    for i in range(0, nb_executions):
 
-elapsed_time = end_pc - start_pc
+        start_perf = time.perf_counter()
 
-print("Temps écoulé entre les deux mesures :", elapsed_time)
-print("Temps estimé pour une instruction :", elapsed_time/n)
+        fonction1
+
+        end_perf = time.perf_counter()
+
+        perfs_fonction1.append(end_perf - start_perf)
+
+    moyenne_fonction1 = sum(perfs_fonction1) / nb_executions
+
+    for i in range(0, nb_executions):
+
+        start_perf = time.perf_counter()
+
+        fonction1
+
+        end_perf = time.perf_counter()
+
+        perfs_fonction2.append(end_perf - start_perf)
+
+    moyenne_fonction2 = sum(perfs_fonction2) / nb_executions
+
+    return (moyenne_fonction1, moyenne_fonction2)
