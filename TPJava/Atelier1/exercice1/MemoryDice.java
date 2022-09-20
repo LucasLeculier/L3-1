@@ -12,12 +12,12 @@ public class MemoryDice extends Dice {
      * Prevents the dice from returning the same value twice
      * @return
      */
-    public int memoryThrow(){
+    public int throwDice(){
 
-        int dice = throwDice();
+        int dice = super.throwDice();
 
         while (dice == lastThrow){
-            dice = throwDice();
+            dice = super.throwDice();
         }
 
         lastThrow = dice;

@@ -63,12 +63,12 @@ public class Dice {
     }
 
     /**
-     * Throws the dice and returns a random integer between 0 and the number of faces
+     * Throws the dice and returns a random integer between 1 and the number of faces
      * @return
      */
     public int throwDice(){
 
-        return r.nextInt(this.faces + 1);
+        return r.nextInt(this.faces);
     }
 
     /**

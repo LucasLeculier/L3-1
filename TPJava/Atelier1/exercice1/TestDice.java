@@ -22,12 +22,20 @@ public class TestDice {
 
         // System.out.println(loadedDice1.throwDice());
 
+        /*
         MemoryDice memoryDice1 = new MemoryDice("", 12);
 
         int n = 20;
 
         for(int i = 0; i < n; i++){
-            System.out.println(memoryDice1.memoryThrow());
+            System.out.println(memoryDice1.throwDice());
         }
+        */
+
+        StringDice stringDice1 = new StringDice("", new String[]{"Bravo", "C'est bien", "Bof bof"});
+
+        System.out.println(stringDice1);
+
+        System.out.println(stringDice1.throwDiceString());
     }
 }
