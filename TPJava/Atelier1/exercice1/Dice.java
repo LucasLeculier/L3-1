@@ -4,16 +4,18 @@ import java.util.*;
 
 public class Dice {
 
-    private static Random r = new Random();
-    private String name;
+    protected static int numberOfDices = 0;
+    protected static Random r = new Random();
+    protected String name;
 
-    private int faces;
+    protected int faces;
 
     /**
      * Default constructor
      */
     public Dice(){
-        this.name = "Dice";
+        numberOfDices += 1;
+        this.name = "Dice n° " + numberOfDices;
         this.faces = 6;
     }
 
@@ -22,7 +24,8 @@ public class Dice {
      * @param faces
      */
     public Dice(int faces){
-        this.name = "Dice";
+        numberOfDices += 1;
+        this.name = "Dice n° " + numberOfDices;
         this.faces = faces;
     }
 
@@ -31,8 +34,32 @@ public class Dice {
      * @param name
      */
     public Dice(String name){
-        this.name = name;
+
+        numberOfDices += 1;
+
+        if(name != null && !name.isBlank()){
+            this.name = name;
+        } else {
+            this.name = "Dice n° " + numberOfDices;
+        }
         this.faces = 6;
+    }
+
+    /**
+     * Constructor with both name and faces
+     * @param name
+     * @param faces
+     */
+    public Dice(String name, int faces){
+
+        numberOfDices += 1;
+
+        if(name != null && !name.isBlank()){
+            this.name = name;
+        } else {
+            this.name = "Dice n° " + numberOfDices;
+        }
+        this.faces = faces;
     }
 
     /**
@@ -42,6 +69,33 @@ public class Dice {
     public int throwDice(){
 
         return r.nextInt(this.faces + 1);
+    }
+
+    /**
+     * Throws the dice n amount of times and returns the best throw
+     * @param n
+     * @return
+     */
+    public int throwDice(int n){
+
+        int currentBest = 0;
+
+        int[] diceThrows = new int[n];
+
+        for(int i = 0; i < n; i++){
+
+            int dice = r.nextInt(this.faces + 1);
+
+            diceThrows[i] = dice;
+
+            if(currentBest < dice){
+                currentBest = dice;
+            }
+        }
+
+        System.out.println(Arrays.toString(diceThrows));
+
+        return currentBest;
     }
 
 
@@ -55,9 +109,17 @@ public class Dice {
         return faces;
     }
 
+    public static int getNumberOfDices(){
+        return numberOfDices;
+    }
+
     // Setters
 
     public void setFaces(int faces){
         this.faces = faces;
+    }
+
+    public String toString(){
+        return String.format("Name : %s, Faces : %d", name, faces);
     }
 }
