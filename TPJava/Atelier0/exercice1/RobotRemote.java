@@ -4,24 +4,18 @@ public class RobotRemote {
 
     public static void main(String[] args) {
 
+        Robot myRobotToto = new Robot("Toto", 10, 20, Robot.SOUTH);
 
-        final int NORTH = 1;
-        final int EAST = 2;
-        final int SOUTH = 3;
-        final int WEST = 4;
-
-        Robot myRobotToto = new Robot("Toto", 10, 20, SOUTH);
-
-        Robot myRobotTiti = new Robot("Titi", 0, 0, NORTH);
+        Robot myRobotTiti = new Robot("Titi", 0, 0, Robot.NORTH);
 
         // Movement of Toto
         myRobotToto.move();
-        myRobotToto.changeOrientation(WEST);
+        myRobotToto.changeOrientation(Robot.WEST);
         myRobotToto.move();
 
         // Movement of Titi
         myRobotTiti.move();
-        myRobotTiti.changeOrientation(WEST);
+        myRobotTiti.changeOrientation(Robot.WEST);
         myRobotTiti.move();
 
         System.out.println(myRobotToto);

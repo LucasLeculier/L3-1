@@ -2,6 +2,11 @@ package exercice1;
 
 public class Robot {
 
+    static final int NORTH = 1;
+    static final int EAST = 2;
+    static final int SOUTH = 3;
+    static final int WEST = 4;
+
     public static int robotCreatedAmount = 0;
 
     public String reference;
@@ -20,7 +25,7 @@ public class Robot {
      */
     public Robot(String name, int xStart, int yStart, int orientationStart){
 
-        robotCreatedAmount += 1;
+        robotCreatedAmount++;
 
         this.name = name;
 
@@ -37,16 +42,7 @@ public class Robot {
      */
     public Robot(String name){
 
-        robotCreatedAmount += 1;
-
-        this.name = name;
-
-        this.x = 0;
-        this.y = 0;
-
-        this.orientation = 1;
-
-        this.reference = "ROB" + robotCreatedAmount;
+        this(name, 0, 0, 1);
     }
 
     /**
@@ -66,15 +62,15 @@ public class Robot {
     public void move(){
 
         switch(this.orientation) {
-            case 1: // NORTH
+            case NORTH: // NORTH
                 this.y += 1;
                 break;
 
-            case 2: // EAST
+            case EAST: // EAST
                 this.x += 1;
                 break;
 
-            case 3: // SOUTH
+            case SOUTH: // SOUTH
                 if(this.y > 0){
                     this.y -= 1;
                 } else {
@@ -82,7 +78,7 @@ public class Robot {
                 }
                 break;
 
-            case 4: // WEST
+            case WEST: // WEST
                 if(this.x > 0){
                     this.x -= 1;
                 } else {
@@ -93,7 +89,7 @@ public class Robot {
                 System.out.println("Orientation is not valid, robot wasn't moved.\n");
         }
 
-        System.out.format("%s is currently at coordinates x:%d and y:%d.\n", this.reference, this.x, this.y);
+        //System.out.format("%s is currently at coordinates x:%d and y:%d.\n", this.reference, this.x, this.y);
     }
 
     /**

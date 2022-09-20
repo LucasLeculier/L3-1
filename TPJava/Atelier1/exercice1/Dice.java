@@ -26,7 +26,14 @@ public class Dice {
     public Dice(int faces){
         numberOfDices += 1;
         this.name = "Dice n° " + numberOfDices;
-        this.faces = faces;
+
+        if (faces < 3) {
+            this.faces = 3;
+        } else if(faces > 120) {
+            this.faces = 120;
+        } else {
+            this.faces = faces;
+        }
     }
 
     /**
@@ -59,7 +66,14 @@ public class Dice {
         } else {
             this.name = "Dice n° " + numberOfDices;
         }
-        this.faces = faces;
+
+        if (faces < 3) {
+            this.faces = 3;
+        } else if(faces > 120) {
+            this.faces = 120;
+        } else {
+            this.faces = faces;
+        }
     }
 
     /**
@@ -68,7 +82,7 @@ public class Dice {
      */
     public int throwDice(){
 
-        return r.nextInt(this.faces);
+        return r.nextInt(this.faces + 1);
     }
 
     /**
@@ -116,7 +130,12 @@ public class Dice {
     // Setters
 
     public void setFaces(int faces){
-        this.faces = faces;
+
+        if(faces >= 3 && faces <= 120){
+            this.faces = faces;
+        } else {
+            System.err.println("Number of faces invalid, needs to be between 3 and 120.");
+        }
     }
 
     public String toString(){

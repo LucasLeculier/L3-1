@@ -20,9 +20,7 @@ public class Vector3D {
      * Default constructor, x y and z default to 0
      */
     public Vector3D(){
-        this.x = 0;
-        this.y = 0;
-        this.z = 0;
+        this(0, 0, 0);
     }
 
     /**
@@ -32,6 +30,10 @@ public class Vector3D {
         System.out.format("<%f, %f, %f>", this.x, this.x, this.z);
     }
 
+    /**
+     * Returns the norm of the vector3D instance
+     * @return
+     */
     public double getNorm(){
 
         return (Math.sqrt( (this.x * this.x) + (this.y * this.y) + (this.z * this.z)));
