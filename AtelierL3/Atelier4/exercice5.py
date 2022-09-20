@@ -58,6 +58,8 @@ n = 10_000_000
 
 def perf_mix(fonction1: callable, fonction2: callable, liste_test: list[int], nb_executions: int) -> tuple[float]:
 
+    liste_a_tester = generer_liste(liste_test, )
+
     perfs_fonction1 = []
     perfs_fonction2 = []
 
@@ -77,7 +79,7 @@ def perf_mix(fonction1: callable, fonction2: callable, liste_test: list[int], nb
 
         start_perf = time.perf_counter()
 
-        fonction1
+        fonction2
 
         end_perf = time.perf_counter()
 
