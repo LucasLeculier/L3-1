@@ -6,7 +6,7 @@ public class TestAPI {
 
         System.out.println(Math.PI);
         System.out.println(Math.random());
-        System.out.println(Math.random());
+        System.out.println(Math.floor(Math.random() * (3 - 1 + 1) + 1));
 
         int x1 = 6, x2 = 3;
 
