@@ -4,7 +4,7 @@ import java.util.*;
 
 public class LoadedDice extends Dice {
 
-    private int minimumValue;
+    private final int minimumValue;
 
     public LoadedDice(int minimumValue, int faces, String name){
         super(name, faces);

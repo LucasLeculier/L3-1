@@ -16,10 +16,18 @@ public class TestDice {
 
         // System.out.println(dice3);
 
-        LoadedDice loadedDice1 = new LoadedDice(6, 10, "");
+        // LoadedDice loadedDice1 = new LoadedDice(6, 10, "");
 
-        System.out.println(loadedDice1);
+        // System.out.println(loadedDice1);
 
-        System.out.println(loadedDice1.throwDice());
+        // System.out.println(loadedDice1.throwDice());
+
+        MemoryDice memoryDice1 = new MemoryDice("", 12);
+
+        int n = 20;
+
+        for(int i = 0; i < n; i++){
+            System.out.println(memoryDice1.memoryThrow());
+        }
     }
 }
