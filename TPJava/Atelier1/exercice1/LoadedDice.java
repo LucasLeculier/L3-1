@@ -1,24 +1,26 @@
 package exercice1;
 
-import java.util.*;
-
 public class LoadedDice extends Dice {
 
-    private final int minimumValue;
+    private final int MINIMUM_VALUE;
 
-    public LoadedDice(int minimumValue, int faces, String name){
+    public LoadedDice(int MINIMUM_VALUE, int faces, String name){
         super(name, faces);
 
-        if(minimumValue < faces && minimumValue > 0){
-            this.minimumValue = minimumValue;
+        if(MINIMUM_VALUE < faces && MINIMUM_VALUE > 0){
+            this.MINIMUM_VALUE = MINIMUM_VALUE;
         } else {
-            this.minimumValue = 1;
+            this.MINIMUM_VALUE = 1;
         }
     }
 
+    /**
+     * Throws the dice and returns a value between the minimum value and the faces value
+     * @return
+     */
     public int throwDice(){
 
-        int dice = r.nextInt(this.faces + 1) + minimumValue;
+        int dice = r.nextInt(this.faces + 1) + MINIMUM_VALUE;
 
         return Math.min(dice, this.faces);
     }

@@ -5,6 +5,9 @@ import java.util.*;
 public class Dice {
 
     protected static int numberOfDices = 0;
+
+    private static final int MIN_FACES = 3;
+    private static final int MAX_FACES = 120;
     protected static Random r = new Random();
     protected String name;
 
@@ -27,10 +30,10 @@ public class Dice {
         numberOfDices += 1;
         this.name = "Dice n° " + numberOfDices;
 
-        if (faces < 3) {
-            this.faces = 3;
-        } else if(faces > 120) {
-            this.faces = 120;
+        if (faces < MIN_FACES) {
+            this.faces = MIN_FACES;
+        } else if(faces > MAX_FACES) {
+            this.faces = MAX_FACES;
         } else {
             this.faces = faces;
         }

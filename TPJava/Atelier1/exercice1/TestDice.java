@@ -33,10 +33,10 @@ public class TestDice {
             System.out.println(dice3.throwDice(10));
         }*/
 
-        //OtherDice stringDice1 = new OtherDice("", new String[]{"Bravo", "C'est bien", "Bof bof"});
+        OtherDice stringDice1 = new OtherDice("", new String[]{"Bravo", "C'est bien", "Bof bof"});
 
-        //System.out.println(stringDice1);
+        System.out.println(stringDice1);
 
-        //System.out.println(stringDice1.throwOtherDice());
+        System.out.println(stringDice1.throwOtherDice());
     }
 }

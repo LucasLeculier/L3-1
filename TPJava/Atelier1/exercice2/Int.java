@@ -3,8 +3,8 @@ package exercice2;
 public class Int {
 
     protected int value;
-    protected final int min;
-    protected final int max;
+    protected final int MIN;
+    protected final int MAX;
 
     /**
      * Constructor
@@ -13,8 +13,8 @@ public class Int {
      * @param max
      */
     public Int(int value, int min, int max){
-        this.min = min;
-        this.max = max;
+        this.MIN = min;
+        this.MAX = max;
         this.value = value;
     }
 
@@ -31,7 +31,7 @@ public class Int {
      * Increments the value by one if possible
      */
     public void increment(){
-        if(value != max){
+        if(value != MAX){
             value++;
         }
     }
@@ -41,14 +41,14 @@ public class Int {
      * @param n
      */
     public void increment(int n){
-        if( (value + n) < max){
+        if( (value + n) < MAX){
             value++;
         }
     }
 
     // Getters
     public int[] getLimit(){
-        return new int[]{min, max};
+        return new int[]{MIN, MAX};
     }
 
     public int getValue(){
@@ -58,17 +58,17 @@ public class Int {
     // Setters
     public void setValue(int value){
 
-        if(value >= min && value <= max){
+        if(value >= MIN && value <= MAX){
             this.value = value;
         }
     }
 
     public String toString(){
-        return String.format("value : %d, minimum value : %d, maximum value : %d", value, min, max);
+        return String.format("value : %d, minimum value : %d, maximum value : %d", value, MIN, MAX);
     }
 
     public Boolean equals(Int anInt){
 
-        return (this.value == anInt.value && this.min == anInt.min && this.max == anInt.max);
+        return (this.value == anInt.value && this.MIN == anInt.MIN && this.MAX == anInt.MAX);
     }
 }

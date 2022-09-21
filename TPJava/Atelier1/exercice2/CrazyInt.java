@@ -26,8 +26,6 @@ public class CrazyInt extends Int {
 
         int n = r.nextInt(craziness + 1);
 
-        if( (value + n) < max){
-            value += n;
-        }
+        super.increment(n);
     }
 }
