@@ -11,7 +11,7 @@ public class TestInt {
         //System.out.println(myInt1.equals(myInt2));
         //System.out.println(myInt1.equals(myInt3));
 
-        CrazyInt crazyInt1 = new CrazyInt(2, 0, 10, 4);
+        CrazyInt crazyInt1 = new CrazyInt(2, 0, 10, 6);
         System.out.println(crazyInt1.getValue());
         crazyInt1.increment();
         System.out.println(crazyInt1.getValue());

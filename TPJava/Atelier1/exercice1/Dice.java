@@ -14,48 +14,6 @@ public class Dice {
     protected int faces;
 
     /**
-     * Default constructor
-     */
-    public Dice(){
-        numberOfDices += 1;
-        this.name = "Dice n° " + numberOfDices;
-        this.faces = 6;
-    }
-
-    /**
-     * Constructor
-     * @param faces
-     */
-    public Dice(int faces){
-        numberOfDices += 1;
-        this.name = "Dice n° " + numberOfDices;
-
-        if (faces < MIN_FACES) {
-            this.faces = MIN_FACES;
-        } else if(faces > MAX_FACES) {
-            this.faces = MAX_FACES;
-        } else {
-            this.faces = faces;
-        }
-    }
-
-    /**
-     * Constructor
-     * @param name
-     */
-    public Dice(String name){
-
-        numberOfDices += 1;
-
-        if(name != null && !name.isBlank()){
-            this.name = name;
-        } else {
-            this.name = "Dice n° " + numberOfDices;
-        }
-        this.faces = 6;
-    }
-
-    /**
      * Constructor with both name and faces
      * @param name
      * @param faces
@@ -70,14 +28,38 @@ public class Dice {
             this.name = "Dice n° " + numberOfDices;
         }
 
-        if (faces < 3) {
-            this.faces = 3;
-        } else if(faces > 120) {
-            this.faces = 120;
+        if (faces < MIN_FACES) {
+            this.faces = MIN_FACES;
+        } else if(faces > MAX_FACES) {
+            this.faces = MAX_FACES;
         } else {
             this.faces = faces;
         }
     }
+
+    /**
+     * Default constructor
+     */
+    public Dice(){
+        this("", 6);
+    }
+
+    /**
+     * Constructor
+     * @param faces
+     */
+    public Dice(int faces){
+        this("", faces);
+    }
+
+    /**
+     * Constructor
+     * @param name
+     */
+    public Dice(String name){
+        this(name, 6);
+    }
+
 
     /**
      * Throws the dice and returns a random integer between 1 and the number of faces

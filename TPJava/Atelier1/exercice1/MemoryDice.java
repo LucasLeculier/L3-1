@@ -4,6 +4,11 @@ public class MemoryDice extends Dice {
 
     private int lastThrow = 0;
 
+    /**
+     * Constructor
+     * @param name
+     * @param faces
+     */
     public MemoryDice(String name, int faces){
         super(name, faces);
     }

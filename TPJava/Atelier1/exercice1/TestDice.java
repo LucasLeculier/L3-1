@@ -7,8 +7,9 @@ public class TestDice {
         Dice dice1 = new Dice();
         Dice dice2 = new Dice("");
         Dice dice3 = new Dice(12);
+        Dice dice4 = new Dice("Juste Leblanc", 20);
 
-        dice1.setFaces(500);
+        System.out.println(dice4);
 
         // System.out.println("Dice throw : " + dice3.throwDice());
         // System.out.println(dice2.getName());
@@ -33,10 +34,10 @@ public class TestDice {
             System.out.println(dice3.throwDice(10));
         }*/
 
-        OtherDice stringDice1 = new OtherDice("", new String[]{"Bravo", "C'est bien", "Bof bof"});
+        /*OtherDice stringDice1 = new OtherDice("", new String[]{"Bravo", "C'est bien", "Bof bof"});
 
         System.out.println(stringDice1);
 
-        System.out.println(stringDice1.throwOtherDice());
+        System.out.println(stringDice1.throwOtherDice());*/
     }
 }

@@ -15,7 +15,11 @@ public class Int {
     public Int(int value, int min, int max){
         this.MIN = min;
         this.MAX = max;
-        this.value = value;
+        if((value > min) && (value < max)){
+            this.value = value;
+        } else {
+            this.value = min;
+        }
     }
 
     /**
@@ -24,7 +28,7 @@ public class Int {
      * @param max
      */
     public Int(int min, int max){
-        this(0, min, max);
+        this(min, min, max);
     }
 
     /**
@@ -42,7 +46,7 @@ public class Int {
      */
     public void increment(int n){
         if( (value + n) < MAX){
-            value++;
+            value += n;
         }
     }
 
@@ -69,6 +73,6 @@ public class Int {
 
     public Boolean equals(Int anInt){
 
-        return (this.value == anInt.value && this.MIN == anInt.MIN && this.MAX == anInt.MAX);
+        return ((this.value == anInt.value) && (this.MIN == anInt.MIN) && (this.MAX == anInt.MAX));
     }
 }
