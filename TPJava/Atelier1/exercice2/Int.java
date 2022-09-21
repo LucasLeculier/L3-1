@@ -27,6 +27,9 @@ public class Int {
         this(0, min, max);
     }
 
+    /**
+     * Increments the value by one if possible
+     */
     public void increment(){
         if(value != max){
             value++;
