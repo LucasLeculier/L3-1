@@ -1,10 +1,11 @@
-package atelier7;
+package question1;
 
 import java.util.*;
-import atelier7.Adresse;
 
 
 public class Personne{
+
+    private static int nbPersonnes = 0;
     private static final Adresse ADRESSE_INCONNUE = null;
     private String nom;
     private String prenom;
@@ -23,6 +24,7 @@ public class Personne{
         prenom=lePrenom;
         dateNaissance=laDate;
         adresse=lAdresse;
+        nbPersonnes++;
     }
 
     /**
@@ -39,6 +41,14 @@ public class Personne{
      */
     public Personne(String leNom,String lePrenom, int j, int m, int a, int numero, String rue, String code_postal, String ville){
         this(leNom, lePrenom, new GregorianCalendar(a,m,j),new Adresse(numero,rue,code_postal,ville));
+    }
+
+    /**
+     * Accesseur
+     * @return le nombre d'instances de personne
+     */
+    public static int getNbPersonnes(){
+        return nbPersonnes;
     }
 
     /**
@@ -77,6 +87,27 @@ public class Personne{
         adresse=a;
     }
 
+    /**
+     * Renvoie true si p1 est plus agee que p2 sinon false
+     * @param p1
+     * @param p2
+     * @return
+     */
+    public static boolean plusAgee(Personne p1, Personne p2){
+
+        return p1.dateNaissance.compareTo(p2.dateNaissance) < 0;
+    }
+
+    /**
+     * Renvoie true si l'instance de Personne est plus agee que p2 sinon false
+     * @param p
+     * @return
+     */
+    public boolean plusAgee(Personne p){
+
+        return plusAgee(this, p);
+    }
+
     /* (non-Javadoc)
      * @see java.lang.Object#toString()
      */
@@ -89,5 +120,9 @@ public class Personne{
                 "Adresse : "+
                 adresse.toString();
         return result;
+    }
+
+    public boolean equals(Personne p){
+        return ((this.nom.equals(p.getNom())) && (this.prenom.equals(p.getPrenom())) && (this.dateNaissance.equals(p.getDateNaissance())));
     }
 }

@@ -1,4 +1,4 @@
-package atelier7;
+package question1;
 
 /*
  * University of Corsica
