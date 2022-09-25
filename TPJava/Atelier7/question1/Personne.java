@@ -6,11 +6,11 @@ import java.util.*;
 public class Personne{
 
     private static int nbPersonnes = 0;
-    private static final Adresse ADRESSE_INCONNUE = null;
-    private String nom;
-    private String prenom;
-    private final GregorianCalendar dateNaissance;
-    private Adresse adresse = ADRESSE_INCONNUE;
+    protected static final Adresse ADRESSE_INCONNUE = null;
+    protected String nom;
+    protected String prenom;
+    protected final GregorianCalendar dateNaissance;
+    protected Adresse adresse = ADRESSE_INCONNUE;
 
     /**
      * Constructeur de Personne

@@ -10,9 +10,9 @@ public class TestQuestion1 {
         Personne personne3 = new Personne("Attends", "Charles", 1, 4, 1995, 1, "Rue", "10000", "Marseille");
 
 
-        System.out.println(Personne.getNbPersonnes());
+        //System.out.println(Personne.getNbPersonnes());
         //System.out.println(Personne.plusAgee(personne2, personne1));
         //System.out.println(personne1.plusAgee(personne2));
-        System.out.println(personne2.equals(personne3));
+        //System.out.println(personne2.equals(personne3));
     }
 }
