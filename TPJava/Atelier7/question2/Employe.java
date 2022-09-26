@@ -46,7 +46,7 @@ public class Employe extends Personne {
 
         Employe employe;
 
-        int age = Period.between(LocalDate.of(j, m, a), LocalDate.now()).getYears();
+        int age = Period.between(LocalDate.of(a, m, j), LocalDate.now()).getYears();
 
         if(age > 16 && age < 65){
             employe = new Employe(leNom, lePrenom, j, m, a, numero, rue, code_postal, ville);
