@@ -8,7 +8,7 @@ import java.util.GregorianCalendar;
 
 public class Employe extends Personne {
 
-    protected double salaire = 0.0;
+    protected static double salaire = 0.0;
 
     protected GregorianCalendar dateEmbauche = null;
 
@@ -42,6 +42,20 @@ public class Employe extends Personne {
      * @param ville
      * @return
      */
+
+    /**
+     * Augmente le salaire de tous le employés par un pourcentage donné qui ne peut pas etre négatif
+     * @param leNom
+     * @param lePrenom
+     * @param j
+     * @param m
+     * @param a
+     * @param numero
+     * @param rue
+     * @param code_postal
+     * @param ville
+     * @return
+     */
     public static Employe createEmploye(String leNom,String lePrenom, int j, int m, int a, int numero, String rue, String code_postal, String ville){
 
         Employe employe;
@@ -55,6 +69,12 @@ public class Employe extends Personne {
         }
 
         return employe;
+    }
+
+    public static void augmenterSalaire(double pourcentage){
+        if(pourcentage >= 0){
+            salaire = salaire + (salaire * (pourcentage/100));
+        }
     }
 
     /*public int calculAnnuite(){
